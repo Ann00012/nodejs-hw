@@ -7,12 +7,12 @@ import {
 
 
 const objectIdValidator = (value, helpers) => {
-  return !isValidObjectId(value) ? helpers.message('Invalid id format') : value;
+  return !isValidObjectId(value) ? helpers.message('Invalid MongoDB ObjectId format') : value;
 };
 
 
 export const getAllNotesSchema = {
-  [Segments.BODY]: Joi.object({
+  [Segments.QUERY]: Joi.object({
     page: Joi.number().integer().min(1).default(1).messages({
        "number.base": "Page must be a number",
       "number.min": "Page should have at least {#limit} characters",
@@ -23,7 +23,7 @@ export const getAllNotesSchema = {
       "number.max": "PerPage must be at most {#limit}",
     }),
     tag: Joi.string().valid(...TAGS).messages({
-      "any.only": `Tag must be one of:${TAGS} `,
+      "any.only": `Tag must be one of:${TAGS.join(', ')} `,
     }),
     search: Joi.string().trim().allow(''),
   })
@@ -37,7 +37,7 @@ export const noteIdSchema ={
 
 export const createNoteSchema = {
   [Segments.BODY]: Joi.object({
-    title : Joi.string().required().messages({
+    title : Joi.string().min(1).required().messages({
       "string.base": "Title must be a string",
       "string.min": "Title should have at least {#limit} characters",
        "any.required": "Title is required",
