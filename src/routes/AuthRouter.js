@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { celebrate } from 'celebrate';
-import { registerUser,loginUser, logoutUser, refreshUserSession } from '../controllers/AuthController.js';
+import { registerUser,loginUser, logoutUser, refreshUserSession } from './controllers/authController.js';
 import { registerUserSchema, loginUserSchema } from '../validations/AuthValidation.js';
 
 
