@@ -23,3 +23,15 @@ This repository is organized into branches to demonstrate different stages of ba
 * **Search & Filtering**:
     * Enabled keyword search across `title` and `content` using **MongoDB Text Indexes**.
     * Implemented category filtering via `tag` query parameters.
+### 📂 [04-auth](https://github.com/Ann00012/nodejs-hw/tree/04-auth)
+**Focus:** Authentication, Sessions & Privacy
+* **User Authentication**: Implementation of full **Registration, Login, and Logout** flows.
+* **Session Management**: Secure handling of user sessions using **Cookies** and server-side storage.
+* **Private Collections**: Restricted access to notes, ensuring users can only view and manage their own **private data**.
+* **Security**: Password hashing and route protection via specialized auth middleware.
+
+### 📂 [05-mail-and-img](https://github.com/Ann00012/nodejs-hw/tree/05-mail-and-img)
+**Focus:** Email Services & File Uploads
+* **Password Recovery**: Implementation of a **Reset Password** feature via email using secure tokens.
+* **Image Processing**: Handling file uploads for **user avatars** using **Multer**.
+
