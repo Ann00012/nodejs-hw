@@ -12,8 +12,18 @@ export const updateUserAvatar = async (req, res, next) => {
   const user = await User.findByIdAndUpdate(
     req.user._id,
     { avatar: result.secure_url },
-    { new: true },
+    { returnDocument: 'after' },
   );
 
-  res.status(200).json({ url: user.avatar });
+  if (!user) {
+    throw createHttpError(404, 'User not found');
+  }
+
+  res.status(200).json({
+    status: 200,
+    message: 'Avatar updated successfully',
+    data: {
+      url: user.avatar
+    }
+  });
 };
