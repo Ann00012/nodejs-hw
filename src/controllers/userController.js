@@ -20,10 +20,6 @@ export const updateUserAvatar = async (req, res, next) => {
   }
 
   res.status(200).json({
-    status: 200,
-    message: 'Avatar updated successfully',
-    data: {
-      url: user.avatar
-    }
+    url: user.avatar
   });
 };
